@@ -33,7 +33,8 @@
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
                     TextColor="Black"
-                    BackgroundColor="WhiteSmoke"/>
+                    BackgroundColor="WhiteSmoke"
+                    Text="{Binding Path=ImporteDeConsumo}"/>
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"
@@ -45,10 +46,15 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     BackgroundColor="WhiteSmoke"
-                    TextColor="Black"/>
+                    TextColor="Black"
+                    Text="{Binding Path=NumeroDePersonas}"/>
                 <Stepper
                     Grid.Row="1"
-                    Grid.Column="2"/>
+                    Grid.Column="2"
+                    Minimum="1"
+                    Maximum="10"
+                    Increment="1"
+                    Value="{Binding Path=NumeroDePersonas}"/>
 
                 <HorizontalStackLayout
                     Grid.Row="2"
@@ -59,19 +65,27 @@
 
                     <Button
                        Text="8%"
-                       WidthRequest="75"/>
+                       WidthRequest="75"
+                        Command="{Binding Path=ActualizarPorcentajeDePropinaCommand}"
+                        CommandParameter="8"/>
 
                     <Button
                        Text="10%"
-                        WidthRequest="75"/>
+                        WidthRequest="75"
+                        Command="{Binding Path=ActualizarPorcentajeDePropinaCommand}"
+                        CommandParameter="10"/>
 
                     <Button
                         Text="12.5%"
-                         WidthRequest="75"/>
+                         WidthRequest="75"
+                        Command="{Binding Path=ActualizarPorcentajeDePropinaCommand}"
+                        CommandParameter="12.5"/>
 
                     <Button
                        Text="15%"
-                        WidthRequest="75"/>
+                        WidthRequest="75"
+                        Command="{Binding Path=ActualizarPorcentajeDePropinaCommand}"
+                        CommandParameter="15"/>
                 </HorizontalStackLayout>
 
                 <Label
@@ -85,12 +99,17 @@
                     Grid.Column="1"
                     Grid.Row="3"
                     BackgroundColor="WhiteSmoke"
-                    TextColor="Black"/>
+                    TextColor="Black"
+                    Text="{Binding Path=PorcentajeDePropina}"/>
 
 
                 <Stepper
                     Grid.Row="3"
-                    Grid.Column="2"/>
+                    Grid.Column="2"
+                    Minimum="0"
+                    Maximum="20"
+                    Increment="0.5"
+                    Value="{Binding Path=PorcentajeDePropina}"/>
 
             </Grid>
 
@@ -103,11 +122,12 @@
             HorizontalOptions="Center"
             Spacing="24">
             <Button
-                Text="Calcular"/>
+                Text="Calcular"
+                Command="{Binding Path=calcularPropinaCommand}"/>
 
             <Button
-                Text="Limpiar"/>
-
+                Text="Limpiar"
+                Command="{Binding Path=limpiarCommand}"/>
 
 
         </HorizontalStackLayout>
@@ -129,7 +149,7 @@
                 <Label
                     Grid.Row="0"
                     Grid.Column="1"
-                    Text="$1500.00"
+                    Text="{Binding Path=ImporteDeConsumoDuplicado}"
                     HorizontalTextAlignment="End"/>
                 <Label
                     Grid.Row="1"
@@ -138,7 +158,7 @@
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
-                    Text="$500.00"
+                    Text="{Binding Path=ImporteDelConsumoPorPersona}"
                      HorizontalTextAlignment="End"/>
                 <Label
                     Grid.Row="2"
@@ -148,7 +168,7 @@
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
-                    Text="$150.00"
+                    Text="{Binding Path=ImporteDePropina}"
                      HorizontalTextAlignment="End"/>
 
 
@@ -159,7 +179,7 @@
                 <Label
                     Grid.Row="3"
                     Grid.Column="1"
-                    Text="$50.00"
+                    Text="{Binding Path=ImporteDePropinaPorPersona}"
                      HorizontalTextAlignment="End"/>
                 <Label
                     Grid.Row="4"
@@ -168,7 +188,7 @@
                 <Label
                     Grid.Row="4"
                     Grid.Column="1"
-                    Text="$1650.00"
+                    Text="{Binding Path=ImporteTotalConPropina}"
                      HorizontalTextAlignment="End"/>
                 <Label
                     Grid.Row="5"
@@ -177,7 +197,7 @@
                 <Label
                     Grid.Row="5"
                     Grid.Column="1"
-                    Text="$550.00"
+                    Text="{Binding Path=ImporteTotalConPropinaPorPersona}"
                      HorizontalTextAlignment="End"/>
 
             </Grid>
